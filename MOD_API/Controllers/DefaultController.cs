@@ -127,7 +127,7 @@ namespace MOD_API.Controllers
         }
 
         
-        [Route("app/saveSkill")]
+        [Route("api/saveSkill")]
         [HttpPost]
         public IHttpActionResult saveSkill(SkillDtl skill)
         {
@@ -219,6 +219,18 @@ namespace MOD_API.Controllers
             ctrl.updatePaymentAndCommisionById(id, payment);
             return Ok("updated");
         }
+
+        
+            
+        [Route("api/editSkillById/{id}")]
+        [HttpPut]
+        public IHttpActionResult editSkillById(int id, SkillDtl skill)
+        {
+            ctrl.editSkillById(id, skill);
+            return Ok("updated");
+        }
+
+
 
         [Route("api/updateUserProfileById/{id}")]
         [HttpPut]

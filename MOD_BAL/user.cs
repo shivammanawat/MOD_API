@@ -341,6 +341,27 @@ namespace MOD_BAL
             }
         }
 
+        public int editSkillById(int id, SkillDtl skill)
+        {
+            SkillDtl emp = db.SkillDtls.Find(id);
+            if (emp != null)
+            {
+                try
+                {
+                    emp.name = skill.name;
+                    emp.toc = skill.toc;
+                    emp.prerequisites = skill.prerequisites;
+                    emp.fees = skill.fees;
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+            return 1;
+        }
+
         public void updateUserProfileById(int id, UserDtl userDtl)
         {
             try
